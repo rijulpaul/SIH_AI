@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional, Tuple
+from typing import Optional, Tuple, List
 
 # Crop Recommendation Schemas
 class CropRecommendationInput(BaseModel):
@@ -12,7 +12,7 @@ class CropRecommendationInput(BaseModel):
     rainfall: int = Field(..., ge=0, le=1000, description="Rainfall in mm")
 
 class CropRecommendationOutput(BaseModel):
-    crop: str
+    crops: List[str] 
     message: str
 
 # Crop Yield Schemas
