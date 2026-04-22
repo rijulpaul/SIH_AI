@@ -8,8 +8,8 @@ class CropRecommendationInput(BaseModel):
     K: int = Field(..., ge=0, le=200, description="Potassium content")
     temperature: float = Field(..., ge=-50, le=60, description="Temperature in Celsius")
     humidity: int = Field(..., ge=0, le=100, description="Humidity percentage")
-    ph: int = Field(..., ge=0, le=14, description="Soil pH level")
-    rainfall: int = Field(..., ge=0, le=1000, description="Rainfall in mm")
+    ph: float = Field(..., ge=0, le=14, description="Soil pH level")
+    rainfall: int = Field(..., ge=0, le=2500, description="Rainfall in mm")
 
 class CropRecommendationOutput(BaseModel):
     crops: List[str] 

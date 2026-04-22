@@ -3,6 +3,15 @@ from routers import crop_recommendation, crop_yield
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Include routers
 app.include_router(crop_recommendation.router, prefix="/recommend", tags=["Crop Recommendation"])
 app.include_router(crop_yield.router, prefix="/yield", tags=["Crop Yield"])
